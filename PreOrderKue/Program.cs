@@ -14,15 +14,16 @@ namespace PreOrderKue
             List<CakeName> Cakes = new List<CakeName>();
             Cakes.Add(new CakeName(1, "Red Velvet", 45000, 5));
             Cakes.Add(new CakeName(2, "Matcha", 30000, 7));
-
+            
             while(true)
             {
                 Console.WriteLine("++++++MENU UTAMA++++++");
                 Console.WriteLine("1. Tambah Jenis Produk");
-                Console.WriteLine("2. Hapus Produk");
-                Console.WriteLine("3. List Produk");
-                Console.WriteLine("4. Beli Produk");
-                Console.WriteLine("5. History Pembelian");
+                Console.WriteLine("2. ReStock Produk");
+                Console.WriteLine("3. Hapus Produk");
+                Console.WriteLine("4. List Produk");
+                Console.WriteLine("5. Beli Produk");
+                Console.WriteLine("6. History Pembelian");
 
                 int PilihMenu = Convert.ToInt32(Console.ReadLine());
 
@@ -43,6 +44,18 @@ namespace PreOrderKue
                         Console.WriteLine("\nPenambahan Produk Berhasil !!");
                         break;
                     case 2:
+                        Console.WriteLine("Pilih Produk yang ingin ditambahkan : ");
+                        int restock = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Produk yang akan ditambahkan adalah\n");
+                        Console.WriteLine($"Nama Produk         : {Cakes[restock - 1].Name}");
+                        Console.WriteLine($"Ketersediaan barang : {Cakes[restock - 1].Availability}");
+
+                        Console.WriteLine("Masukan jumlah yang ingin ditambahkan : ");
+                        int amount = Convert.ToInt32(Console.ReadLine());
+                        Cakes[restock - 1].Availability = Cakes[restock - 1].Availability + amount;
+                        Console.WriteLine("\nJumlah barang berhasil ditambahkan...");
+                        break;
+                    case 3:
                         Console.WriteLine("\nMasukan ID Produk yang akan dihapus :");
                         int deleteProduk = Convert.ToInt32(Console.ReadLine());
 
@@ -50,7 +63,7 @@ namespace PreOrderKue
 
                         Console.WriteLine("\nPenghapusan Produk Berhasil !!");
                         break;
-                    case 3:
+                    case 4:
                         Console.WriteLine("List Produk Tersedia Beserta Pembelinya");
 
                         foreach (CakeName cn in Cakes)
@@ -68,7 +81,7 @@ namespace PreOrderKue
                             }                                                    
                         }
                         break;
-                    case 4:
+                    case 5:
                         Console.WriteLine("Nama Pembeli : ");
                         string name = Console.ReadLine();
 
@@ -96,7 +109,7 @@ namespace PreOrderKue
                             Console.WriteLine("==Barang Tidak Tercukupi==\n\n");
                         }
                         break;
-                    case 5:
+                    case 6:
                         Console.WriteLine("\nHistory Pembelian\n");
                         foreach (CakeName cn in Cakes)
                         {

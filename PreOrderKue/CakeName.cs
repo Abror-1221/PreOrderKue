@@ -12,7 +12,6 @@ namespace PreOrderKue
         public string Name { get; set; }
         public int Price { get; set; }
         public int Availability { get; set; }
-
         public List<Buyer> Buyers { get; set; }
 
         public CakeName(int idProduk, string name, int price, int availability)
