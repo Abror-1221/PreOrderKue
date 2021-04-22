@@ -25,8 +25,7 @@ namespace PreOrderKue
         }
 
         public void ListPembeli()
-        {
-            Console.WriteLine("List Pembeli Produk\n");
+        {           
             foreach(Buyer b in Buyers)
             {
                 Console.WriteLine($"Nama Pembeli : {b.NickName}");

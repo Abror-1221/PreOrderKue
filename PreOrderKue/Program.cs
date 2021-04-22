@@ -22,6 +22,8 @@ namespace PreOrderKue
                 Console.WriteLine("2. Hapus Produk");
                 Console.WriteLine("3. List Produk");
                 Console.WriteLine("4. Beli Produk");
+                Console.WriteLine("5. History Pembelian");
+
                 int PilihMenu = Convert.ToInt32(Console.ReadLine());
 
                 switch(PilihMenu)
@@ -63,8 +65,7 @@ namespace PreOrderKue
                                 Console.WriteLine($"Nama : {cn.Name}");
                                 Console.WriteLine($"Harga : {cn.Price}");
                                 Console.WriteLine($"Ketersediaan : {cn.Availability}\n");
-                            }                         
-                            cn.ListPembeli();
+                            }                                                    
                         }
                         break;
                     case 4:
@@ -93,6 +94,13 @@ namespace PreOrderKue
                         else
                         {
                             Console.WriteLine("==Barang Tidak Tercukupi==\n\n");
+                        }
+                        break;
+                    case 5:
+                        Console.WriteLine("\nHistory Pembelian\n");
+                        foreach (CakeName cn in Cakes)
+                        {
+                            cn.ListPembeli();
                         }
                         break;
                     default:
