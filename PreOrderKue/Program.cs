@@ -17,7 +17,7 @@ namespace PreOrderKue
             
             while(true)
             {
-                Console.WriteLine("++++++MENU UTAMA++++++");
+                Console.WriteLine("\n++++++MENU UTAMA++++++");
                 Console.WriteLine("1. Tambah Jenis Produk");
                 Console.WriteLine("2. ReStock Produk");
                 Console.WriteLine("3. Hapus Produk");
@@ -64,13 +64,12 @@ namespace PreOrderKue
                         Console.WriteLine("\nPenghapusan Produk Berhasil !!");
                         break;
                     case 4:
-                        Console.WriteLine("List Produk Tersedia Beserta Pembelinya");
-
+                        Console.WriteLine("List Produk Tersedia");
                         foreach (CakeName cn in Cakes)
                         {
                             if (cn.Availability == 0)
                             {
-                                break;
+                                continue;
                             }
                             else
                             {
@@ -106,7 +105,15 @@ namespace PreOrderKue
                         }
                         else
                         {
-                            Console.WriteLine("==Barang Tidak Tercukupi==\n\n");
+                            Console.WriteLine($"Anda secara otomatis membeli");
+                            Console.WriteLine($"Jumlah barang yang tersedia : {cake.Availability}\n");
+                            Console.WriteLine($"Nama Produk        : {cake.Name}");
+                            Console.WriteLine($"Jumlah yang dibeli : {cake.Availability}");                          
+                            int totals = cake.Availability * cake.Price;                                               
+                            Console.WriteLine($"Total Pembayaran   : {totals}");
+                            Buyer buyer = new Buyer(name, item, totals);
+                            cake.Buyers.Add(buyer);
+                            cake.Availability = cake.Availability - cake.Availability;
                         }
                         break;
                     case 6:
