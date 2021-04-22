@@ -53,10 +53,17 @@ namespace PreOrderKue
 
                         foreach (CakeName cn in Cakes)
                         {
-                            Console.WriteLine($"ID : {cn.IdProduk}");
-                            Console.WriteLine($"Nama : {cn.Name}");
-                            Console.WriteLine($"Harga : {cn.Price}");
-                            Console.WriteLine($"Ketersediaan : {cn.Availability}\n");
+                            if (cn.Availability == 0)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine($"ID : {cn.IdProduk}");
+                                Console.WriteLine($"Nama : {cn.Name}");
+                                Console.WriteLine($"Harga : {cn.Price}");
+                                Console.WriteLine($"Ketersediaan : {cn.Availability}\n");
+                            }                         
                             cn.ListPembeli();
                         }
                         break;
@@ -74,7 +81,7 @@ namespace PreOrderKue
                         Console.WriteLine("Jumlah Barang : ");
                         int item = Convert.ToInt32(Console.ReadLine());
 
-                        if (item < cake.Availability)
+                        if (item <= cake.Availability)
                         {
                             cake.Availability = cake.Availability - item;
                             int totals = item * cake.Price;
