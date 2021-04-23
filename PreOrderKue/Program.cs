@@ -11,9 +11,9 @@ namespace PreOrderKue
         static void Main(string[] args)
         {
             Console.WriteLine("++++++Selamat Datang++++++");
-            List<CakeName> Cakes = new List<CakeName>();
-            Cakes.Add(new CakeName(1, "Red Velvet", 45000, 5));
-            Cakes.Add(new CakeName(2, "Matcha", 30000, 7));
+            List<CakeName> cakes = new List<CakeName>();
+            cakes.Add(new CakeName(1, "Red Velvet", 45000, 5));
+            cakes.Add(new CakeName(2, "Matcha", 30000, 7));
             
             while(true)
             {
@@ -25,9 +25,9 @@ namespace PreOrderKue
                 Console.WriteLine("5. Beli Produk");
                 Console.WriteLine("6. History Pembelian");
 
-                int PilihMenu = Convert.ToInt32(Console.ReadLine());
+                int pilihMenu = Convert.ToInt32(Console.ReadLine());
 
-                switch(PilihMenu)
+                switch(pilihMenu)
                 {
                     case 1:                       
                         Console.WriteLine("\nMasukan ID Produk :");
@@ -39,7 +39,7 @@ namespace PreOrderKue
                         Console.WriteLine("Masukan Ketersediaan Produk :");
                         int newAvailability = Convert.ToInt32(Console.ReadLine());
 
-                        Cakes.Add(new CakeName(newId, newName, newPrice, newAvailability));
+                        cakes.Add(new CakeName(newId, newName, newPrice, newAvailability));
 
                         Console.WriteLine("\nPenambahan Produk Berhasil !!");
                         break;
@@ -47,25 +47,25 @@ namespace PreOrderKue
                         Console.WriteLine("Pilih Produk yang ingin ditambahkan : ");
                         int restock = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Produk yang akan ditambahkan adalah\n");
-                        Console.WriteLine($"Nama Produk         : {Cakes[restock - 1].Name}");
-                        Console.WriteLine($"Ketersediaan barang : {Cakes[restock - 1].Availability}");
+                        Console.WriteLine($"Nama Produk         : {cakes[restock - 1].Name}");
+                        Console.WriteLine($"Ketersediaan barang : {cakes[restock - 1].Availability}");
 
                         Console.WriteLine("Masukan jumlah yang ingin ditambahkan : ");
                         int amount = Convert.ToInt32(Console.ReadLine());
-                        Cakes[restock - 1].Availability = Cakes[restock - 1].Availability + amount;
+                        cakes[restock - 1].Availability = cakes[restock - 1].Availability + amount;
                         Console.WriteLine("\nJumlah barang berhasil ditambahkan...");
                         break;
                     case 3:
                         Console.WriteLine("\nMasukan ID Produk yang akan dihapus :");
                         int deleteProduk = Convert.ToInt32(Console.ReadLine());
 
-                        Cakes.RemoveAt(deleteProduk);
+                        cakes.RemoveAt(deleteProduk);
 
                         Console.WriteLine("\nPenghapusan Produk Berhasil !!");
                         break;
                     case 4:
                         Console.WriteLine("List Produk Tersedia");
-                        foreach (CakeName cn in Cakes)
+                        foreach (CakeName cn in cakes)
                         {
                             if (cn.Availability == 0)
                             {
@@ -86,7 +86,7 @@ namespace PreOrderKue
 
                         Console.WriteLine("Pilih Produk : ");
                         int choose = Convert.ToInt32(Console.ReadLine());
-                        CakeName cake = Cakes.ElementAt(choose - 1);
+                        CakeName cake = cakes.ElementAt(choose - 1);
 
                         Console.WriteLine($"Nama Produk : {cake.Name}");
                         Console.WriteLine($"Harga Barang : {cake.Price}\n");
@@ -118,7 +118,7 @@ namespace PreOrderKue
                         break;
                     case 6:
                         Console.WriteLine("\nHistory Pembelian\n");
-                        foreach (CakeName cn in Cakes)
+                        foreach (CakeName cn in cakes)
                         {
                             cn.ListPembeli();
                         }
