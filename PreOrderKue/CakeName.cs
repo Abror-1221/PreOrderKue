@@ -24,10 +24,12 @@ namespace PreOrderKue
         }
 
         public void ListPembeli()
-        {           
+        {   
             foreach(Buyer b in Buyers)
             {
+                
                 Console.WriteLine($"Nama Pembeli : {b.NickName}");
+                Console.WriteLine($"Nama Barang : {Name}");
                 Console.WriteLine($"Jumlah Barang : {b.Ammount}");
                 Console.WriteLine($"Total Harga : {b.Total}\n");
             }

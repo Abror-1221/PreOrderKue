@@ -159,9 +159,9 @@ namespace PreOrderKue
                             break;
                     }
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    Console.WriteLine("Error : Data yang diinputkan salah...");
+                    Console.WriteLine("Error : " + e.Message);
                     continue;
                 }
                 
