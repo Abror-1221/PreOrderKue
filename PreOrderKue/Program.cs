@@ -61,13 +61,14 @@ namespace PreOrderKue
                         try
                         {
                             cakes.RemoveAt(deleteProduk - 1);
+                            Console.WriteLine("\nPenghapusan Produk Berhasil !!");
                         }
                         catch (Exception e)
                         {
                             Console.WriteLine("Error : " + e.Message);
-                            throw;
+                            continue;
                         }                      
-                        Console.WriteLine("\nPenghapusan Produk Berhasil !!");
+                        
                         break;
                     case 4:
                         Console.WriteLine("List Produk Tersedia");
