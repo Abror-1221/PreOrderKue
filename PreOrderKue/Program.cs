@@ -58,9 +58,15 @@ namespace PreOrderKue
                     case 3:
                         Console.WriteLine("\nMasukan ID Produk yang akan dihapus :");
                         int deleteProduk = Convert.ToInt32(Console.ReadLine());
-
-                        cakes.RemoveAt(deleteProduk);
-
+                        try
+                        {
+                            cakes.RemoveAt(deleteProduk - 1);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Error : " + e.Message);
+                            throw;
+                        }                      
                         Console.WriteLine("\nPenghapusan Produk Berhasil !!");
                         break;
                     case 4:
