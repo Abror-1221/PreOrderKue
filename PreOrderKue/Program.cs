@@ -63,9 +63,9 @@ namespace PreOrderKue
                             cakes.RemoveAt(deleteProduk - 1);
                             Console.WriteLine("\nPenghapusan Produk Berhasil !!");
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
-                            Console.WriteLine("Error : " + e.Message);
+                            Console.WriteLine("Error : ID tidak tersedia");
                             continue;
                         }                      
                         
